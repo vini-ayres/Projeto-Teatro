@@ -1,1 +1,121 @@
-{"payload":{"allShortcutsEnabled":false,"fileTree":{"":{"items":[{"name":".ccls-cache","path":".ccls-cache","contentType":"directory"},{"name":".breakpoints","path":".breakpoints","contentType":"file"},{"name":".replit","path":".replit","contentType":"file"},{"name":"Makefile","path":"Makefile","contentType":"file"},{"name":"main","path":"main","contentType":"file"},{"name":"projeto-teatro.cpp","path":"projeto-teatro.cpp","contentType":"file"},{"name":"replit.nix","path":"replit.nix","contentType":"file"}],"totalCount":7}},"fileTreeProcessingTime":1.4533809999999998,"foldersToFetch":[],"repo":{"id":769009359,"defaultBranch":"main","name":"Projeto-Teatro","ownerLogin":"vini-ayres","currentUserCanPush":false,"isFork":false,"isEmpty":false,"createdAt":"2024-03-08T06:42:38.000Z","ownerAvatar":"https://avatars.githubusercontent.com/u/131456406?v=4","public":true,"private":false,"isOrgOwned":false},"symbolsExpanded":false,"treeExpanded":true,"refInfo":{"name":"main","listCacheKey":"v0:1709880174.0","canEdit":false,"refType":"branch","currentOid":"a142725b2a4a0e19f2b77544347f354f10ce8e48"},"path":"projeto-teatro.cpp","currentUser":null,"blob":{"rawLines":["#include <iostream>","#include <iomanip>","","using namespace std;","","const int TOTAL_FILEIRAS = 15;","const int POLTRONAS_POR_FILEIRA = 40;","","char teatro[TOTAL_FILEIRAS][POLTRONAS_POR_FILEIRA];","float precos[TOTAL_FILEIRAS];","","void inicializarTeatro() {","    for (int i = 0; i < TOTAL_FILEIRAS; ++i) {","        for (int j = 0; j < POLTRONAS_POR_FILEIRA; ++j) {","            teatro[i][j] = '.';","        }","    }","","    for (int i = 0; i < TOTAL_FILEIRAS; ++i) {","        if (i < 5) {","            precos[i] = 50.0;","        } else if (i < 10) {","            precos[i] = 30.0;","        } else {","            precos[i] = 15.0;","        }","    }","}","","void mostrarMapa() {","    cout << \"Mapa de Ocupacao do Teatro:\" << endl;","    for (int i = 0; i < TOTAL_FILEIRAS; ++i) {","        for (int j = 0; j < POLTRONAS_POR_FILEIRA; ++j) {","            cout << teatro[i][j] << \" \";","        }","        cout << endl;","    }","}","","void realizarReserva() {","    int fileira, poltrona;","","    cout << \"Informe a fileira (1-\" << TOTAL_FILEIRAS << \"): \";","    cin >> fileira;","","    cout << \"Informe a poltrona (1-\" << POLTRONAS_POR_FILEIRA << \"): \";","    cin >> poltrona;","","    // Verifica se os valores informados são válidos","    if (fileira < 1 || fileira > TOTAL_FILEIRAS || poltrona < 1 || poltrona > POLTRONAS_POR_FILEIRA) {","        cout << \"Valores de fileira ou poltrona inválidos.\" << endl;","        return;","    }","","    // Ajusta os índices para a representação interna do array","    fileira--;","    poltrona--;","","    // Verifica se o lugar está vago","    if (teatro[fileira][poltrona] == '.') {","        teatro[fileira][poltrona] = '#';  // Ocupa o lugar","        cout << \"Reserva realizada com sucesso!\" << endl;","    } else {","        cout << \"Lugar já ocupado. Escolha outro lugar.\" << endl;","    }","}","","void calcularFaturamento() {","    int lugaresOcupados = 0;","    float valorBilheteria = 0.0;","","    for (int i = 0; i < TOTAL_FILEIRAS; ++i) {","        for (int j = 0; j < POLTRONAS_POR_FILEIRA; ++j) {","            if (teatro[i][j] == '#') {","                lugaresOcupados++;","                valorBilheteria += precos[i];","            }","        }","    }","","    cout << \"Quantidade de lugares ocupados: \" << lugaresOcupados << endl;","    cout << fixed << setprecision(2);","    cout << \"Valor da bilheteria: R$ \" << valorBilheteria << endl;","}","","int main() {","    inicializarTeatro();","","    int opcao;","","    do {","        cout << \"\\nSelecione uma opcao:\" << endl;","        cout << \"0. Finalizar\" << endl;","        cout << \"1. Reservar poltrona\" << endl;","        cout << \"2. Mapa de ocupacao\" << endl;","        cout << \"3. Faturamento\" << endl;","        cout << \"Opcao: \";","        cin >> opcao;","","        switch (opcao) {","            case 0:","                cout << \"Programa encerrado.\" << endl;","                break;","            case 1:","                realizarReserva();","                break;","            case 2:","                mostrarMapa();","                break;","            case 3:","                calcularFaturamento();","                break;","            default:","                cout << \"Opcao invalida. Tente novamente.\" << endl;","                break;","        }","","    } while (opcao != 0);","","    return 0;","}"],"stylingDirectives":[[{"start":1,"end":8,"cssClass":"pl-k"},{"start":9,"end":19,"cssClass":"pl-s"},{"start":9,"end":10,"cssClass":"pl-pds"},{"start":18,"end":19,"cssClass":"pl-pds"}],[{"start":1,"end":8,"cssClass":"pl-k"},{"start":9,"end":18,"cssClass":"pl-s"},{"start":9,"end":10,"cssClass":"pl-pds"},{"start":17,"end":18,"cssClass":"pl-pds"}],[],[{"start":0,"end":5,"cssClass":"pl-k"},{"start":6,"end":15,"cssClass":"pl-k"},{"start":16,"end":19,"cssClass":"pl-en"},{"start":19,"end":20,"cssClass":"pl-k"}],[],[{"start":0,"end":5,"cssClass":"pl-k"},{"start":6,"end":9,"cssClass":"pl-k"},{"start":27,"end":29,"cssClass":"pl-c1"}],[{"start":0,"end":5,"cssClass":"pl-k"},{"start":6,"end":9,"cssClass":"pl-k"},{"start":34,"end":36,"cssClass":"pl-c1"}],[],[{"start":0,"end":4,"cssClass":"pl-k"}],[{"start":0,"end":5,"cssClass":"pl-k"}],[],[{"start":0,"end":4,"cssClass":"pl-k"},{"start":5,"end":22,"cssClass":"pl-en"}],[{"start":4,"end":7,"cssClass":"pl-k"},{"start":9,"end":12,"cssClass":"pl-k"},{"start":17,"end":18,"cssClass":"pl-c1"}],[{"start":8,"end":11,"cssClass":"pl-k"},{"start":13,"end":16,"cssClass":"pl-k"},{"start":21,"end":22,"cssClass":"pl-c1"}],[{"start":27,"end":30,"cssClass":"pl-s"},{"start":27,"end":28,"cssClass":"pl-pds"},{"start":29,"end":30,"cssClass":"pl-pds"}],[],[],[],[{"start":4,"end":7,"cssClass":"pl-k"},{"start":9,"end":12,"cssClass":"pl-k"},{"start":17,"end":18,"cssClass":"pl-c1"}],[{"start":8,"end":10,"cssClass":"pl-k"},{"start":16,"end":17,"cssClass":"pl-c1"}],[{"start":24,"end":28,"cssClass":"pl-c1"}],[{"start":10,"end":14,"cssClass":"pl-k"},{"start":15,"end":17,"cssClass":"pl-k"},{"start":23,"end":25,"cssClass":"pl-c1"}],[{"start":24,"end":28,"cssClass":"pl-c1"}],[{"start":10,"end":14,"cssClass":"pl-k"}],[{"start":24,"end":28,"cssClass":"pl-c1"}],[],[],[],[],[{"start":0,"end":4,"cssClass":"pl-k"},{"start":5,"end":16,"cssClass":"pl-en"}],[{"start":12,"end":41,"cssClass":"pl-s"},{"start":12,"end":13,"cssClass":"pl-pds"},{"start":40,"end":41,"cssClass":"pl-pds"}],[{"start":4,"end":7,"cssClass":"pl-k"},{"start":9,"end":12,"cssClass":"pl-k"},{"start":17,"end":18,"cssClass":"pl-c1"}],[{"start":8,"end":11,"cssClass":"pl-k"},{"start":13,"end":16,"cssClass":"pl-k"},{"start":21,"end":22,"cssClass":"pl-c1"}],[{"start":36,"end":39,"cssClass":"pl-s"},{"start":36,"end":37,"cssClass":"pl-pds"},{"start":38,"end":39,"cssClass":"pl-pds"}],[],[],[],[],[],[{"start":0,"end":4,"cssClass":"pl-k"},{"start":5,"end":20,"cssClass":"pl-en"}],[{"start":4,"end":7,"cssClass":"pl-k"}],[],[{"start":12,"end":35,"cssClass":"pl-s"},{"start":12,"end":13,"cssClass":"pl-pds"},{"start":34,"end":35,"cssClass":"pl-pds"},{"start":57,"end":62,"cssClass":"pl-s"},{"start":57,"end":58,"cssClass":"pl-pds"},{"start":61,"end":62,"cssClass":"pl-pds"}],[],[],[{"start":12,"end":36,"cssClass":"pl-s"},{"start":12,"end":13,"cssClass":"pl-pds"},{"start":35,"end":36,"cssClass":"pl-pds"},{"start":65,"end":70,"cssClass":"pl-s"},{"start":65,"end":66,"cssClass":"pl-pds"},{"start":69,"end":70,"cssClass":"pl-pds"}],[],[],[{"start":4,"end":52,"cssClass":"pl-c"},{"start":4,"end":6,"cssClass":"pl-c"}],[{"start":4,"end":6,"cssClass":"pl-k"},{"start":18,"end":19,"cssClass":"pl-c1"},{"start":62,"end":63,"cssClass":"pl-c1"}],[{"start":16,"end":59,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":58,"end":59,"cssClass":"pl-pds"}],[{"start":8,"end":14,"cssClass":"pl-k"}],[],[],[{"start":4,"end":62,"cssClass":"pl-c"},{"start":4,"end":6,"cssClass":"pl-c"}],[],[],[],[{"start":4,"end":36,"cssClass":"pl-c"},{"start":4,"end":6,"cssClass":"pl-c"}],[{"start":4,"end":6,"cssClass":"pl-k"},{"start":37,"end":40,"cssClass":"pl-s"},{"start":37,"end":38,"cssClass":"pl-pds"},{"start":39,"end":40,"cssClass":"pl-pds"}],[{"start":36,"end":39,"cssClass":"pl-s"},{"start":36,"end":37,"cssClass":"pl-pds"},{"start":38,"end":39,"cssClass":"pl-pds"},{"start":42,"end":58,"cssClass":"pl-c"},{"start":42,"end":44,"cssClass":"pl-c"}],[{"start":16,"end":48,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":47,"end":48,"cssClass":"pl-pds"}],[{"start":6,"end":10,"cssClass":"pl-k"}],[{"start":16,"end":56,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":55,"end":56,"cssClass":"pl-pds"}],[],[],[],[{"start":0,"end":4,"cssClass":"pl-k"},{"start":5,"end":24,"cssClass":"pl-en"}],[{"start":4,"end":7,"cssClass":"pl-k"},{"start":26,"end":27,"cssClass":"pl-c1"}],[{"start":4,"end":9,"cssClass":"pl-k"},{"start":28,"end":31,"cssClass":"pl-c1"}],[],[{"start":4,"end":7,"cssClass":"pl-k"},{"start":9,"end":12,"cssClass":"pl-k"},{"start":17,"end":18,"cssClass":"pl-c1"}],[{"start":8,"end":11,"cssClass":"pl-k"},{"start":13,"end":16,"cssClass":"pl-k"},{"start":21,"end":22,"cssClass":"pl-c1"}],[{"start":12,"end":14,"cssClass":"pl-k"},{"start":32,"end":35,"cssClass":"pl-s"},{"start":32,"end":33,"cssClass":"pl-pds"},{"start":34,"end":35,"cssClass":"pl-pds"}],[],[],[],[],[],[],[{"start":12,"end":46,"cssClass":"pl-s"},{"start":12,"end":13,"cssClass":"pl-pds"},{"start":45,"end":46,"cssClass":"pl-pds"}],[{"start":21,"end":33,"cssClass":"pl-c1"},{"start":34,"end":35,"cssClass":"pl-c1"}],[{"start":12,"end":38,"cssClass":"pl-s"},{"start":12,"end":13,"cssClass":"pl-pds"},{"start":37,"end":38,"cssClass":"pl-pds"}],[],[],[{"start":0,"end":3,"cssClass":"pl-k"},{"start":4,"end":8,"cssClass":"pl-en"}],[{"start":4,"end":21,"cssClass":"pl-c1"}],[],[{"start":4,"end":7,"cssClass":"pl-k"}],[],[{"start":4,"end":6,"cssClass":"pl-k"}],[{"start":16,"end":40,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":19,"cssClass":"pl-cce"},{"start":39,"end":40,"cssClass":"pl-pds"}],[{"start":16,"end":30,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":29,"end":30,"cssClass":"pl-pds"}],[{"start":16,"end":38,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":37,"end":38,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":32,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":31,"end":32,"cssClass":"pl-pds"}],[{"start":16,"end":25,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[],[],[{"start":8,"end":14,"cssClass":"pl-k"}],[{"start":12,"end":16,"cssClass":"pl-k"},{"start":17,"end":18,"cssClass":"pl-c1"}],[{"start":24,"end":45,"cssClass":"pl-s"},{"start":24,"end":25,"cssClass":"pl-pds"},{"start":44,"end":45,"cssClass":"pl-pds"}],[{"start":16,"end":21,"cssClass":"pl-k"}],[{"start":12,"end":16,"cssClass":"pl-k"},{"start":17,"end":18,"cssClass":"pl-c1"}],[{"start":16,"end":31,"cssClass":"pl-c1"}],[{"start":16,"end":21,"cssClass":"pl-k"}],[{"start":12,"end":16,"cssClass":"pl-k"},{"start":17,"end":18,"cssClass":"pl-c1"}],[{"start":16,"end":27,"cssClass":"pl-c1"}],[{"start":16,"end":21,"cssClass":"pl-k"}],[{"start":12,"end":16,"cssClass":"pl-k"},{"start":17,"end":18,"cssClass":"pl-c1"}],[{"start":16,"end":35,"cssClass":"pl-c1"}],[{"start":16,"end":21,"cssClass":"pl-k"}],[{"start":12,"end":19,"cssClass":"pl-k"}],[{"start":24,"end":58,"cssClass":"pl-s"},{"start":24,"end":25,"cssClass":"pl-pds"},{"start":57,"end":58,"cssClass":"pl-pds"}],[{"start":16,"end":21,"cssClass":"pl-k"}],[],[],[{"start":6,"end":11,"cssClass":"pl-k"},{"start":22,"end":23,"cssClass":"pl-c1"}],[],[{"start":4,"end":10,"cssClass":"pl-k"},{"start":11,"end":12,"cssClass":"pl-c1"}],[]],"csv":null,"csvError":null,"dependabotInfo":{"showConfigurationBanner":false,"configFilePath":null,"networkDependabotPath":"/vini-ayres/Projeto-Teatro/network/updates","dismissConfigurationNoticePath":"/settings/dismiss-notice/dependabot_configuration_notice","configurationNoticeDismissed":null},"displayName":"projeto-teatro.cpp","displayUrl":"https://github.com/vini-ayres/Projeto-Teatro/blob/main/projeto-teatro.cpp?raw=true","headerInfo":{"blobSize":"3.07 KB","deleteTooltip":"You must be signed in to make or propose changes","editTooltip":"You must be signed in to make or propose changes","ghDesktopPath":"https://desktop.github.com","isGitLfs":false,"onBranch":true,"shortPath":"236ee6f","siteNavLoginPath":"/login?return_to=https%3A%2F%2Fgithub.com%2Fvini-ayres%2FProjeto-Teatro%2Fblob%2Fmain%2Fprojeto-teatro.cpp","isCSV":false,"isRichtext":false,"toc":null,"lineInfo":{"truncatedLoc":"121","truncatedSloc":"100"},"mode":"file"},"image":false,"isCodeownersFile":null,"isPlain":false,"isValidLegacyIssueTemplate":false,"issueTemplate":null,"discussionTemplate":null,"language":"C++","languageID":43,"large":false,"planSupportInfo":{"repoIsFork":null,"repoOwnedByCurrentUser":null,"requestFullPath":"/vini-ayres/Projeto-Teatro/blob/main/projeto-teatro.cpp","showFreeOrgGatedFeatureMessage":null,"showPlanSupportBanner":null,"upgradeDataAttributes":null,"upgradePath":null},"publishBannersInfo":{"dismissActionNoticePath":"/settings/dismiss-notice/publish_action_from_dockerfile","releasePath":"/vini-ayres/Projeto-Teatro/releases/new?marketplace=true","showPublishActionBanner":false},"rawBlobUrl":"https://github.com/vini-ayres/Projeto-Teatro/raw/main/projeto-teatro.cpp","renderImageOrRaw":false,"richText":null,"renderedFileInfo":null,"shortPath":null,"symbolsEnabled":true,"tabSize":8,"topBannersInfo":{"overridingGlobalFundingFile":false,"globalPreferredFundingPath":null,"showInvalidCitationWarning":false,"citationHelpUrl":"https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-citation-files","actionsOnboardingTip":null},"truncated":false,"viewable":true,"workflowRedirectUrl":null,"symbols":{"timed_out":false,"not_analyzed":false,"symbols":[{"name":"inicializarTeatro","kind":"function","ident_start":220,"ident_end":237,"extent_start":215,"extent_end":617,"fully_qualified_name":"inicializarTeatro","ident_utf16":{"start":{"line_number":11,"utf16_col":5},"end":{"line_number":11,"utf16_col":22}},"extent_utf16":{"start":{"line_number":11,"utf16_col":0},"end":{"line_number":27,"utf16_col":1}}},{"name":"mostrarMapa","kind":"function","ident_start":624,"ident_end":635,"extent_start":619,"extent_end":876,"fully_qualified_name":"mostrarMapa","ident_utf16":{"start":{"line_number":29,"utf16_col":5},"end":{"line_number":29,"utf16_col":16}},"extent_utf16":{"start":{"line_number":29,"utf16_col":0},"end":{"line_number":37,"utf16_col":1}}},{"name":"realizarReserva","kind":"function","ident_start":883,"ident_end":898,"extent_start":878,"extent_end":1745,"fully_qualified_name":"realizarReserva","ident_utf16":{"start":{"line_number":39,"utf16_col":5},"end":{"line_number":39,"utf16_col":20}},"extent_utf16":{"start":{"line_number":39,"utf16_col":0},"end":{"line_number":65,"utf16_col":1}}},{"name":"calcularFaturamento","kind":"function","ident_start":1752,"ident_end":1771,"extent_start":1747,"extent_end":2276,"fully_qualified_name":"calcularFaturamento","ident_utf16":{"start":{"line_number":67,"utf16_col":5},"end":{"line_number":67,"utf16_col":24}},"extent_utf16":{"start":{"line_number":67,"utf16_col":0},"end":{"line_number":83,"utf16_col":1}}},{"name":"main","kind":"function","ident_start":2282,"ident_end":2286,"extent_start":2278,"extent_end":3141,"fully_qualified_name":"main","ident_utf16":{"start":{"line_number":85,"utf16_col":4},"end":{"line_number":85,"utf16_col":8}},"extent_utf16":{"start":{"line_number":85,"utf16_col":0},"end":{"line_number":121,"utf16_col":0}}}]}},"copilotInfo":null,"copilotAccessAllowed":false,"csrf_tokens":{"/vini-ayres/Projeto-Teatro/branches":{"post":"picKpCiI0RkS18IdgyWjsU6F_Fy-sqaPynd7_LKj_meKX8eepB3r2Zw1DlfiRDFZrDhj0OCHjdJsjtD7krKX-w"},"/repos/preferences":{"post":"Pao81Cn7dtrL6D6PDv2bxQIG8i1oQ7J7RxcgvvSTCZx21oLgl9EC5CsnAzBqvbIabuACx0P7svw5iqc00D5DQw"}}},"title":"Projeto-Teatro/projeto-teatro.cpp at main · vini-ayres/Projeto-Teatro"}
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+const int TOTAL_FILEIRAS = 15;
+const int POLTRONAS_POR_FILEIRA = 40;
+
+char teatro[TOTAL_FILEIRAS][POLTRONAS_POR_FILEIRA];
+float precos[TOTAL_FILEIRAS];
+
+void inicializarTeatro() {
+    for (int i = 0; i < TOTAL_FILEIRAS; ++i) {
+        for (int j = 0; j < POLTRONAS_POR_FILEIRA; ++j) {
+            teatro[i][j] = '.';
+        }
+    }
+
+    for (int i = 0; i < TOTAL_FILEIRAS; ++i) {
+        if (i < 5) {
+            precos[i] = 50.0;
+        } else if (i < 10) {
+            precos[i] = 30.0;
+        } else {
+            precos[i] = 15.0;
+        }
+    }
+}
+
+void mostrarMapa() {
+    cout << "Mapa de Ocupacao do Teatro:" << endl;
+    for (int i = 0; i < TOTAL_FILEIRAS; ++i) {
+        for (int j = 0; j < POLTRONAS_POR_FILEIRA; ++j) {
+            cout << teatro[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+void realizarReserva() {
+    int fileira, poltrona;
+
+    cout << "Informe a fileira (1-" << TOTAL_FILEIRAS << "): ";
+    cin >> fileira;
+
+    cout << "Informe a poltrona (1-" << POLTRONAS_POR_FILEIRA << "): ";
+    cin >> poltrona;
+
+    // Verifica se os valores informados são válidos
+    if (fileira < 1 || fileira > TOTAL_FILEIRAS || poltrona < 1 || poltrona > POLTRONAS_POR_FILEIRA) {
+        cout << "Valores de fileira ou poltrona inválidos." << endl;
+        return;
+    }
+
+    // Ajusta os índices para a representação interna do array
+    fileira--;
+    poltrona--;
+
+    // Verifica se o lugar está vago
+    if (teatro[fileira][poltrona] == '.') {
+        teatro[fileira][poltrona] = '#';  // Ocupa o lugar
+        cout << "Reserva realizada com sucesso!" << endl;
+    } else {
+        cout << "Lugar já ocupado. Escolha outro lugar." << endl;
+    }
+}
+
+void calcularFaturamento() {
+    int lugaresOcupados = 0;
+    float valorBilheteria = 0.0;
+
+    for (int i = 0; i < TOTAL_FILEIRAS; ++i) {
+        for (int j = 0; j < POLTRONAS_POR_FILEIRA; ++j) {
+            if (teatro[i][j] == '#') {
+                lugaresOcupados++;
+                valorBilheteria += precos[i];
+            }
+        }
+    }
+
+    cout << "Quantidade de lugares ocupados: " << lugaresOcupados << endl;
+    cout << fixed << setprecision(2);
+    cout << "Valor da bilheteria: R$ " << valorBilheteria << endl;
+}
+
+int main() {
+    inicializarTeatro();
+
+    int opcao;
+
+    do {
+        cout << "\nSelecione uma opcao:" << endl;
+        cout << "0. Finalizar" << endl;
+        cout << "1. Reservar poltrona" << endl;
+        cout << "2. Mapa de ocupacao" << endl;
+        cout << "3. Faturamento" << endl;
+        cout << "Opcao: ";
+        cin >> opcao;
+
+        switch (opcao) {
+            case 0:
+                cout << "Programa encerrado." << endl;
+                break;
+            case 1:
+                realizarReserva();
+                break;
+            case 2:
+                mostrarMapa();
+                break;
+            case 3:
+                calcularFaturamento();
+                break;
+            default:
+                cout << "Opcao invalida. Tente novamente." << endl;
+                break;
+        }
+
+    } while (opcao != 0);
+
+    return 0;
+}
