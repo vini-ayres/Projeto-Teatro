@@ -7,7 +7,7 @@ const int TOTAL_FILEIRAS = 15;
 const int POLTRONAS_POR_FILEIRA = 40;
 
 char teatro[TOTAL_FILEIRAS][POLTRONAS_POR_FILEIRA];
-float precos[TOTAL_FILEIRAS];
+double precos[TOTAL_FILEIRAS];
 
 void inicializarTeatro() {
     for (int i = 0; i < TOTAL_FILEIRAS; ++i) {
@@ -46,19 +46,16 @@ void realizarReserva() {
     cout << "Informe a poltrona (1-" << POLTRONAS_POR_FILEIRA << "): ";
     cin >> poltrona;
 
-    // Verifica se os valores informados são válidos
     if (fileira < 1 || fileira > TOTAL_FILEIRAS || poltrona < 1 || poltrona > POLTRONAS_POR_FILEIRA) {
         cout << "Valores de fileira ou poltrona inválidos." << endl;
         return;
     }
 
-    // Ajusta os índices para a representação interna do array
     fileira--;
     poltrona--;
 
-    // Verifica se o lugar está vago
     if (teatro[fileira][poltrona] == '.') {
-        teatro[fileira][poltrona] = '#';  // Ocupa o lugar
+        teatro[fileira][poltrona] = '#';
         cout << "Reserva realizada com sucesso!" << endl;
     } else {
         cout << "Lugar já ocupado. Escolha outro lugar." << endl;
